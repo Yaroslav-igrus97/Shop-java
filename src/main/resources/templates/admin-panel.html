@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель администратора</title>
+    <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+<div th:replace="layouts/header :: header"></div>
+<main class="container">
+    <h1>Все пользователи</h1>
+    <div class="users_list">
+        <div th:each="el : ${users}" class="block" style="margin-bottom:15px">
+            <h2 th:text="'Пользователь: ' + ${el.username}"></h2>
+            <p th:text="'Email: ' + ${el.email} + ' Роль на сайте: ' + ${el.roles}"></p><br>
+            <a th:href="'/admin/user-' + ${el.id}" class="edit-btn" >Товары автора</a>
+            <br>
+        </div>
+    </div>
+    </div>
+</main>
+<div th:replace="layouts/footer :: footer"></div>
+</body>
+</html>
